@@ -76,8 +76,6 @@ class ParaATM(QWidget):
             cmd = readNATS.Command(self.cursor,[table,'callsign='+acid])
         elif os.path.exists(self.SHERLOCK_DIR+table):
             cmd = readIFF.Command(self.cursor,[table,'callsign='+acid])
-        else:
-            print(self.NATS_DIR,self.SHERLOCK_DIR)
         self.commandParameters = cmd.executeCommand()
         self.initMap()
 
@@ -118,7 +116,10 @@ class ParaATM(QWidget):
         def show_trajectory():
             table = self.tableSelection.currentText()
             acid = self.flightSelection.currentText()
-            cmd = readNATS.Command(self.cursor,table,callsign=acid)
+            if os.path.exists(self.NATS_DIR+table):
+                cmd = readNATS.Command(self.cursor,[table,'callsign='+acid])
+            elif os.path.exists(self.SHERLOCK_DIR+table):
+                cmd = readIFF.Command(self.cursor,[table,'callsign='+acid])
             self.commandParameters = cmd.executeCommand()
             self.initMap()
 
