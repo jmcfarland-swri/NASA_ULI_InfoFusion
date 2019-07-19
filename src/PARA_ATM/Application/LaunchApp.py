@@ -60,7 +60,7 @@ class ParaATM(QWidget):
         
         #Application-level data definition
         self.flightSelected = ""
-        self.tableList = self.getTableList()
+        self.tableList = sorted(self.getTableList())
         self.dateRangeSelected = []
         self.commandParameters = []
         self.filterToggles = list(range(1, 5))
@@ -126,7 +126,7 @@ class ParaATM(QWidget):
         def populate_flights():
             query = "SELECT DISTINCT callsign FROM \"%s\""%self.tableSelection.currentText()
             self.cursor.execute(query)
-            flightList = [i[0] for i in self.cursor.fetchall()]
+            flightList = sorted([i[0] for i in self.cursor.fetchall()])
             if self.flightPickerLayout:
                 self.flightSelectionLayout.removeItem(self.flightPickerLayout)
             self.flightPickerLayout = QHBoxLayout()
