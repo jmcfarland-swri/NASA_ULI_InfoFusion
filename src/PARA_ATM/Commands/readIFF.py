@@ -63,7 +63,7 @@ class Command:
         """
         #check for table
         try:
-            self.cursor.execute("SELECT * FROM \"%s\" WHERE altitude='1.00'"%self.filename)
+            self.cursor.execute("SELECT * FROM \"%s\""%self.filename)
             #self.cursor.execute("SELECT * FROM \"%s\""%(self.filename))
             if bool(self.cursor.rowcount):
                 results = pd.DataFrame(self.cursor.fetchall())
@@ -75,7 +75,6 @@ class Command:
                 return ['readIFF', results, self.filename]
         except Exception as e:
             print(e)
-            return
         #src directory
         parentPath = str(Path(__file__).parent.parent.parent)
         #trajectory record rows have different fields than header rows
