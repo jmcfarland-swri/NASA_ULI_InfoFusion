@@ -18,6 +18,26 @@ from PARA_ATM import *
 from PARA_ATM.Commands import readNATS,readIFF,readTDDS
 import time
 
+def reload_package(root_module):
+    package_name = root_module.__name__
+
+    # get a reference to each loaded module
+    loaded_package_modules = dict([
+        (key, value) for key, value in sys.modules.items() 
+        if key.startswith(package_name)])
+
+    # delete references to these loaded modules from sys.modules
+    for key in loaded_package_modules:
+        del sys.modules[key]
+
+    # load each of the modules again; 
+    # make old modules share state with new modules
+    for key in loaded_package_modules:
+        newmodule = __import__(key)
+        oldmodule = loaded_package_modules[key]
+        oldmodule.__dict__.clear()
+        oldmodule.__dict__.update(newmodule.__dict__)
+
 class GitHub(QWidget):
     '''
         When instantiated, this class provides a view of the GitHub Code repository
@@ -262,7 +282,8 @@ class ParaATM(QWidget):
         initmap() pulls in the leaflet map to the application from MapView module.
     '''
     def initMap(self):
-        
+        from PARA_ATM.Map.MapView import buildMap
+
         #Set the toggle values based on user selection
         self.filterToggles[0] = 1 if self.airportToggle.isChecked() else 0
         self.filterToggles[1] = 1 if self.waypointToggle.isChecked() else 0
@@ -270,7 +291,7 @@ class ParaATM(QWidget):
         self.filterToggles[3] = 1 if self.sectorToggle.isChecked() else 0
         
         #Invoke MapView to plot the map onto the application layout based on the user's preferences as parameters
-        self.mapHTML = MapView.buildMap(self.flightSelected, self.dateRangeSelected, self.filterToggles, self.cursor, self.commandParameters)
+        self.mapHTML = buildMap(self.flightSelected, self.dateRangeSelected, self.filterToggles, self.cursor, self.commandParameters)
         self.mapView.setHtml(self.mapHTML)
         self.mapLayout.addWidget(self.mapView)
 
@@ -351,6 +372,7 @@ class ParaATM(QWidget):
         #Get the command name and argument inputs
         commandInput = self.commandInput.text() 
         commandName = str(commandInput.split('(')[0])
+        #reload_package(getattr(sys.modules[__name__],commandName))
         cmd = getattr(__import__('PARA_ATM.Commands',fromlist=[commandName]), commandName)
         commandArguments = str(commandInput.split('(')[1])[:-1]
         if ',' in commandArguments:
