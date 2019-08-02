@@ -85,6 +85,7 @@ class Command:
                 results[['latitude','longitude','altitude','heading']] = results[['latitude','longitude','altitude','heading']].replace(r'[^0-9,.,-]+','0',regex=True)
                 results[['latitude','longitude','altitude','heading']] = results[['latitude','longitude','altitude','heading']].astype(float)
                 results['status'] = results['status'].fillna('TAKEOFF/LANDING')
+                results = results[results['latitude'] != -100]
                 return ['readIFF', results, self.filename]
         except Exception as e:
             print(e)
