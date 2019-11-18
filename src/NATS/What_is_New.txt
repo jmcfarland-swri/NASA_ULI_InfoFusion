@@ -1,0 +1,30 @@
+National Airspace Trajectory-Prediction System(NATS)
+
+Version: beta 1.7
+
+Changes in this release:
+
+1. A new standalone version of NATS has been designed to run on a single machine. Development of this version was motivated by a poll of the ULI user community.
+   This new design integrates the previous server-client interaction and provides a simpler way to run trajectory propagation on the desktop. 
+
+   Please view the sample files to understand how the new function calls work.
+
+2. API Change
+   ControllerInterface.setDelayPeriod(String acid, AircraftClearance aircraft_clearance, float seconds)
+   Now it accepts float type data of delay period.
+
+3. R Interface has been added to allow functions written in R to interact with NATS. Package "rJava" needs to be installed by running command install.packages("rJava") in R shell as follows:
+
+   user@host:~/$ sudo R
+   [sudo] password for user: 
+
+   R version 3.4.4 (2018-03-15) -- "Someone to Lean On"
+   Copyright (C) 2018 The R Foundation for Statistical Computing
+   Platform: x86_64-pc-linux-gnu (64-bit)
+
+   > install.packages("rJava")
+   Installing package into ‘/usr/local/lib/R/site-library’
+   ...
+   ...
+
+   Sample code: sample/DEMO_R_Monte_Carlo_Example_Beta_1.7.r

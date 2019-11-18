@@ -1,0 +1,61 @@
+============================
+ big  Test Log
+============================
+Testing big file with the SEC2 Driver 
+Testing Huge dataset write                                             PASSED
+#000 0x0000000152476946                                                PASSED
+#001 0x00000000f52ef928                                                PASSED
+#002 0x0000000110ad6490                                                PASSED
+#003 0x0000000184a2e52c                                                PASSED
+#004 0x00000001e4b4d131                                                PASSED
+#005 0x0000000080c58d64                                                PASSED
+#006 0x00000000d05b3580                                                PASSED
+#007 0x00000001d548ea44                                                PASSED
+#008 0x00000001cd167030                                                PASSED
+#009 0x000000014bd1a7f2                                                PASSED
+#010 0x000000012f22ee96                                                PASSED
+#011 0x00000000d56ae63a                                                PASSED
+#012 0x00000000a8ae5d1a                                                PASSED
+#013 0x0000000193a6ab26                                                PASSED
+#014 0x00000000009211d0                                                PASSED
+#015 0x00000000b5de15f3                                                PASSED
+#016 0x000000004a05f380                                                PASSED
+#017 0x00000001214a178b                                                PASSED
+#018 0x000000003ab49a86                                                PASSED
+#019 0x000000012c5ceaca                                                PASSED
+#020 0x00000001d7961f72                                                PASSED
+#021 0x000000011be21a71                                                PASSED
+#022 0x00000000bf3ecd90                                                PASSED
+#023 0x00000000a4c5b021                                                PASSED
+#024 0x000000017e715300                                                PASSED
+#025 0x00000000f0c0fb90                                                PASSED
+#026 0x000000005664a178                                                PASSED
+#027 0x00000000fd47f33d                                                PASSED
+#028 0x00000000344b7a84                                                PASSED
+#029 0x00000000f0517cec                                                PASSED
+#030 0x00000000f43fe58e                                                PASSED
+#031 0x00000001fb2394a2                                                PASSED
+#032 0x00000001c1a1bd70                                                PASSED
+#033 0x00000001ffa1d1ac                                                PASSED
+#034 0x00000000de8356a8                                                PASSED
+#035 0x000000011c2b37e8                                                PASSED
+#036 0x00000000c65a1e8e                                                PASSED
+#037 0x0000000155885e91                                                PASSED
+#038 0x00000001b904b88e                                                PASSED
+#039 0x00000000d6e40200                                                PASSED
+#040 0x000000018b4fec4e                                                PASSED
+#041 0x000000008d4fefad                                                PASSED
+#042 0x000000012bafe9d7                                                PASSED
+#043 0x000000010eb95dcb                                                PASSED
+#044 0x000000014a10ded7                                                PASSED
+#045 0x00000000ce78c486                                                PASSED
+#046 0x000000011161a6b0                                                PASSED
+#047 0x000000011bd70aea                                                PASSED
+#048 0x00000000891a20d5                                                PASSED
+#049 0x000000012467b65d                                                PASSED
+Test passed with the SEC2 Driver.
+0.00user 0.00system 0:00.02elapsed 75%CPU (0avgtext+0avgdata 6692maxresident)k
+32inputs+6864outputs (1major+2225minor)pagefaults 0swaps
+
+Finished testing big 
+============================

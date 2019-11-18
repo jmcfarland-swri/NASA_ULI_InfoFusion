@@ -1,0 +1,65 @@
+	    SUMMARY OF THE HDF5 CONFIGURATION
+	    =================================
+
+General Information:
+-------------------
+		   HDF5 Version: 1.8.21
+		  Configured on: Tue Nov 12 09:40:42 CST 2019
+		  Configured by: edecarlo@edecarlolx-1.div18.swri.org
+		 Configure mode: production
+		    Host system: x86_64-unknown-linux-gnu
+	      Uname information: Linux edecarlolx-1.div18.swri.org 4.15.0-66-generic #75-Ubuntu SMP Tue Oct 1 05:24:09 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+		       Byte sex: little-endian
+		      Libraries: static, shared
+	     Installation point: /home/edecarlo/Documents/NATS_Standalone_Ubuntu_16.04_beta1.7/dependency_library/../dist/hdf5
+
+Compiling Options:
+------------------
+               Compilation Mode: production
+                     C Compiler: /usr/bin/gcc
+                         CFLAGS: -fPIC
+                      H5_CFLAGS:   -std=c99 -pedantic -Wall -W -Wundef -Wshadow -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wconversion -Waggregate-return -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wnested-externs -Winline -O -finline-functions
+                      AM_CFLAGS: 
+                       CPPFLAGS: 
+                    H5_CPPFLAGS: -D_GNU_SOURCE -D_POSIX_C_SOURCE=200112L   -UNDEBUG -DH5AC_DEBUG -DH5B_DEBUG -DH5B2_DEBUG -DH5D_DEBUG -DH5E_DEBUG -DH5F_DEBUG -DH5G_DEBUG -DH5HG_DEBUG -DH5HL_DEBUG -DH5I_DEBUG -DH5MF_DEBUG -DH5MM_DEBUG -DH5O_DEBUG -DH5P_DEBUG -DH5S_DEBUG -DH5T_DEBUG -DH5V_DEBUG -DH5Z_DEBUG -DH5_DEBUG_API
+                    AM_CPPFLAGS:  -I/usr/include
+               Shared C Library: yes
+               Static C Library: yes
+  Statically Linked Executables: no
+                        LDFLAGS: 
+                     H5_LDFLAGS: 
+                     AM_LDFLAGS:  -L/usr/lib
+ 	 	Extra libraries: -lpthread -ldl -lm 
+ 		       Archiver: ar
+ 		 	 Ranlib: ranlib
+ 	      Debugged Packages: ac,b,b2,d,e,f,g,hg,hl,i,mf,mm,o,p,s,t,v,z
+		    API Tracing: yes
+
+Languages:
+----------
+                        Fortran: no
+
+                            C++: yes
+                   C++ Compiler: /usr/bin/g++
+                      C++ Flags: 
+                   H5 C++ Flags:  
+                   AM C++ Flags: 
+             Shared C++ Library: yes
+             Static C++ Library: yes
+
+Features:
+---------
+                  Parallel HDF5: no
+             High Level library: yes
+                   Threadsafety: yes
+            Default API Mapping: v18
+ With Deprecated Public Symbols: yes
+         I/O filters (external): 
+                            MPE: no
+                     Direct VFD: no
+                        dmalloc: no
+Clear file buffers before write: yes
+           Using memory checker: no
+         Function Stack Tracing: no
+      Strict File Format Checks: yes
+   Optimization Instrumentation: yes

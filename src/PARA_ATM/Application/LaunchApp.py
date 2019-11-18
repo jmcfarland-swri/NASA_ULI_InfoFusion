@@ -14,7 +14,6 @@ import sys
 
 sys.path.insert(0, '/home/edecarlo/dev/nasa-uli/src/')
 
-from NATS.Client import *
 from PARA_ATM import *
 from PARA_ATM.Commands import readNATS,readIFF,readTDDS
 from bokeh.io import output_file, show, curdoc

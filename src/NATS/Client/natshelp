@@ -1,2 +1,0 @@
-#!/bin/bash
-java -jar dist/NATShelp.jar $1
