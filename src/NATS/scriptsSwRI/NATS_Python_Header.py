@@ -35,7 +35,7 @@ classpath = classpath + ":" + str_NATS_HOME + "dist/commons-logging-1.2.jar"
 class NATS_Config:
     def __init__(self, duration = 86400,
                  interval = 1,
-                 client_dir = client,
+                 client_dir = env_NATS_HOME,
                  wind_dir = 'share/tg/rap',
                  track_file = "share/tg/trx/swim_example_aug.trx",
                  max_flt_lev_file = "share/tg/trx/swim_example_mfl.trx"):

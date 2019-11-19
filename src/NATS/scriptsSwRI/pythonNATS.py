@@ -9,9 +9,9 @@
 #
 # The aircraft starts from the origin gate, goes through departing taxi plan, takes off, goes through different flight phases to the destination airport, and finally reaches the destination gate.
 import sys
-sys.path.append('/home/dyn.datasys.swri.edu/mhartnett/NASA_ULI/NASA_ULI_InfoFusion/src/NATS/Client/')
+sys.path.append('/home/edecarlo/dev/nasa-uli/src/NATS/scriptsSwRI/')
 
-from NATS_header import NATS_Config
+from NATS_Python_Header import NATS_Config
 from NATS_MonteCarlo_Interface import NATS_MonteCarlo_Interface
 from sys import argv
 import time
@@ -19,7 +19,8 @@ import numpy as np
 import time
 
 def main(arg):
-    trx, mfl = "share/tg/trxSwRI/TRX_DEMO_Combined_GateToGate.trx", "share/tg/trxSwRI/TRX_DEMO_Combined_GateToGate_mfl.trx"
+    trx = arg[0]
+    trx, mfl = "trxSwRI/TRX_DEMO_Combined_GateToGate.trx", "trxSwRI/TRX_DEMO_Combined_GateToGate_mfl.trx"
     config = NATS_Config(duration=7200, interval=1, track_file = trx, max_flt_lev_file = mfl)
     MC_interface = NATS_MonteCarlo_Interface(config)
 

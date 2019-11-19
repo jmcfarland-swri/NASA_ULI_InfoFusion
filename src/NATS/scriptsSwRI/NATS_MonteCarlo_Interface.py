@@ -6,14 +6,14 @@ Author: Parikshit Dutta
 Date: 2018-04-02
 '''
 import sys
-sys.path.append('/home/dyn.datasys.swri.edu/mhartnett/NASA_ULI/NASA_ULI_InfoFusion/src/NATS/Client/')
+sys.path.append('/home/edecarlo/dev/nasa-uli/src/NATS/scriptsSwRI/')
 import os
 
 from jpype import JClass,shutdownJVM
-import NATS_header
+import NATS_Python_Header as NATS_header
 import time
 import numpy as np
-import PostProcessor as pp
+#import PostProcessor as pp
 
 '''This is the same arg_dict variable that is used in Example_MC_code.'''
 args_dict = {1:'latitude', \
@@ -369,6 +369,7 @@ class NATS_MonteCarlo_Interface:
     
     
     def runMCSimWithPause(self,args):
+        print(args)
         self.sim.clear_trajectory()
 
         #self.environmentInterface.load_rap("share/tg/rap")
@@ -386,11 +387,12 @@ class NATS_MonteCarlo_Interface:
           NATS_header.AIRCRAFT_CLEARANCE_DESCENT_FROM_CRUISE, NATS_header.AIRCRAFT_CLEARANCE_ENTER_TRACON,
           NATS_header.AIRCRAFT_CLEARANCE_APPROACH, NATS_header.AIRCRAFT_CLEARANCE_TOUCHDOWN, 
           NATS_header.AIRCRAFT_CLEARANCE_TAXI_LANDING, NATS_header.AIRCRAFT_CLEARANCE_RAMP_LANDING]
+        db_terms = ['pushbackDelay','taxiDepartingDelay','takeoffDelay','enterARTCDelay','descentDelay','enterTRACONDelay','approachDelay','touchdownDelay','taxiLandingDelay','rampLandingDelay']
         for ac in self.aircraftInterface.getAllAircraftId():
             print('Changing controllerInterface parameters for {}'.format(ac))
             for i,d in enumerate(delays):
-                print('Setting {} to {}'.format(d,args[0][i]))
-                self.controllerInterface.setDelayPeriod(ac, d, int(np.round(args[0][i])))
+                print('Setting {} to {}'.format(d,args[0][db_terms[i]]))
+                self.controllerInterface.setDelayPeriod(ac, d, int(np.round(args[0][db_terms[i]])))
         self.sim.resume()
     
         # Use a while loop to constantly check simulation status.  When the simulation finishes, continue to output the trajectory data
@@ -721,9 +723,9 @@ if __name__ == '__main__':
     args = [[curr_ac],args_dict[6],lat_vec,fpwpidx]
     MC_interface.runMCSims(args)
     
-    post_process = pp.PostProcessor(file_path = "../Server/", \
-                 ac_name = curr_ac);
+    #post_process = pp.PostProcessor(file_path = "../Server/", \
+    #             ac_name = curr_ac);
     
-    post_process.plotRoutine();
+    #post_process.plotRoutine();
     
     
