@@ -19,10 +19,17 @@ import numpy as np
 import time
 
 def main(arg):
+    """
+        arg (list): list of [trx,mfl,{kwargs}]
+    """
     trx = arg[0]
+    mfl = arg[1]
     trx, mfl = "trxSwRI/TRX_DEMO_Combined_GateToGate.trx", "trxSwRI/TRX_DEMO_Combined_GateToGate_mfl.trx"
     config = NATS_Config(duration=7200, interval=1, track_file = trx, max_flt_lev_file = mfl)
     MC_interface = NATS_MonteCarlo_Interface(config)
 
-    filename = MC_interface.runMCSimWithPause(arg)
+    filename = MC_interface.runMCSimWithPause(arg[2:])
     return filename
+
+if __name__ == '__main__':
+    main(argv[1:])
