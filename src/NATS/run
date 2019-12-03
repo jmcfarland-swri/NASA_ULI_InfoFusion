@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export NATS_HOME=$HOME/Documents/NATS_Standalone_Ubuntu_16.04_beta1.7
+export NATS_HOME=${PWD}
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$NATS_HOME/dist
 
