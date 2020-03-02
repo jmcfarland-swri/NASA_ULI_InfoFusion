@@ -1,6 +1,0 @@
-TRACK_TIME 1232051096392
-
-TRACK US1549 A320 404609.4 735302.5 160 0.21 40 ZNY ZNY09
-    FP_ROUTE KLGA./.RW04.HOPEA3.HUO..EPH.EPH8.I16R.RW16R.<>.KSEA
-
-# Notice.  SID HOPEA3 is not the correct procedure used in Hudson River accident.  NATS uses it as a temporary procedure so the TRX engine can parse it.  After that, we will manually change the waypoints.
